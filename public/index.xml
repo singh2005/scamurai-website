@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
+  <channel>
+    <title>Scamurai</title>
+    <link>http://localhost:1313/</link>
+    <description>Recent content on Scamurai</description>
+    <generator>Hugo -- 0.148.1</generator>
+    <language>en-us</language>
+    <lastBuildDate>Sun, 20 Jul 2025 20:20:00 -0500</lastBuildDate>
+    <atom:link href="http://localhost:1313/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Welcome to Scamurai</title>
+      <link>http://localhost:1313/posts/welcome-to-scamurai/</link>
+      <pubDate>Sun, 20 Jul 2025 20:15:00 -0500</pubDate>
+      <guid>http://localhost:1313/posts/welcome-to-scamurai/</guid>
+      <description>&lt;p&gt;🥷🏼🤖 &lt;strong&gt;Scamurai is your vigilant scam-fighting bot.&lt;/strong&gt;&lt;/p&gt;
+&lt;p&gt;It posts concise scam alerts sourced from official organizations to keep you and your loved ones protected from online scams and fraud.&lt;/p&gt;
+&lt;p&gt;Follow our &lt;a href=&#34;https://mastodon.social/@scamurai_bot&#34;&gt;Mastodon feed&lt;/a&gt; for real-time alerts.&lt;/p&gt;
+&lt;p&gt;Stay safe out there!&lt;/p&gt;</description>
+    </item>
+    <item>
+      <title>About Scamurai</title>
+      <link>http://localhost:1313/about/</link>
+      <pubDate>Sun, 20 Jul 2025 20:20:00 -0500</pubDate>
+      <guid>http://localhost:1313/about/</guid>
+      <description>&lt;p&gt;&lt;img alt=&#34;Scamurai Bot Profile Pic&#34; loading=&#34;lazy&#34; src=&#34;http://localhost:1313/images/scamurai-profile.jpg&#34;&gt;&lt;/p&gt;
+&lt;p&gt;&lt;strong&gt;Scamurai&lt;/strong&gt; is a public service bot created by Shailendra Singh to raise awareness about online scams, frauds, and phishing attacks.&lt;/p&gt;
+&lt;p&gt;It aggregates alerts from trusted sources like the &lt;strong&gt;FTC&lt;/strong&gt; and &lt;strong&gt;IC3&lt;/strong&gt;, summarizes them concisely for quick reading, and posts them to &lt;strong&gt;Mastodon&lt;/strong&gt; and this website.&lt;/p&gt;
+&lt;p&gt;🛡️ Knowledge is your first line of defense.&lt;/p&gt;
+&lt;hr&gt;
+&lt;p&gt;👉 &lt;strong&gt;Follow us on Mastodon:&lt;/strong&gt; &lt;a href=&#34;https://mastodon.social/@scamurai_bot&#34;&gt;@scamurai_bot&lt;/a&gt;&lt;br&gt;
+🔗 &lt;strong&gt;Connect with the creator on LinkedIn:&lt;/strong&gt; &lt;a href=&#34;https://www.linkedin.com/in/shailendra-singh-596a7625/&#34;&gt;Shailendra Singh&lt;/a&gt;&lt;/p&gt;</description>
+    </item>
+  </channel>
+</rss>

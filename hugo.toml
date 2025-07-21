@@ -1,0 +1,14 @@
+baseURL = 'https://example.org/'
+languageCode = 'en-us'
+title = 'Scamurai'
+theme = 'PaperMod'
+
+[params]
+  mainSections = ['posts']
+  defaultTheme = "auto"
+
+[[menu.main]]
+  identifier = "about"
+  name = "About"
+  url = "/about/"
+  weight = 10
