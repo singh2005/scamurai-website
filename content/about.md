@@ -4,7 +4,7 @@ date: 2025-07-20T20:20:00-05:00
 draft: false
 ---
 
-![Scamurai Bot Profile Pic]({{ "/images/scamurai-profile.jpg" | absURL }})
+<img src="/scamurai-website/images/scamurai-profile.jpg" alt="Scamurai Bot Profile Pic" width="200"/>
 
 **Scamurai** is a public service bot created by Shailendra Singh to raise awareness about online scams, frauds, and phishing attacks.
 
