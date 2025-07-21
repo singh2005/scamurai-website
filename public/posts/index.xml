@@ -1,22 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?>
-<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/">
-  <channel>
-    <title>Posts on Scamurai</title>
-    <link>http://localhost:1313/posts/</link>
-    <description>Recent content in Posts on Scamurai</description>
-    <generator>Hugo -- 0.148.1</generator>
-    <language>en-us</language>
-    <lastBuildDate>Sun, 20 Jul 2025 20:15:00 -0500</lastBuildDate>
-    <atom:link href="http://localhost:1313/posts/index.xml" rel="self" type="application/rss+xml" />
-    <item>
-      <title>Welcome to Scamurai</title>
-      <link>http://localhost:1313/posts/welcome-to-scamurai/</link>
-      <pubDate>Sun, 20 Jul 2025 20:15:00 -0500</pubDate>
-      <guid>http://localhost:1313/posts/welcome-to-scamurai/</guid>
-      <description>&lt;p&gt;🥷🏼🤖 &lt;strong&gt;Scamurai is your vigilant scam-fighting bot.&lt;/strong&gt;&lt;/p&gt;
-&lt;p&gt;It posts concise scam alerts sourced from official organizations to keep you and your loved ones protected from online scams and fraud.&lt;/p&gt;
-&lt;p&gt;Follow our &lt;a href=&#34;https://mastodon.social/@scamurai_bot&#34;&gt;Mastodon feed&lt;/a&gt; for real-time alerts.&lt;/p&gt;
-&lt;p&gt;Stay safe out there!&lt;/p&gt;</description>
-    </item>
-  </channel>
-</rss>
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom" xmlns:content="http://purl.org/rss/1.0/modules/content/"><channel><title>Posts on Scamurai</title><link>https://singh2005.github.io/scamurai-website/posts/</link><description>Recent content in Posts on Scamurai</description><generator>Hugo -- 0.148.1</generator><language>en-us</language><lastBuildDate>Sun, 20 Jul 2025 20:15:00 -0500</lastBuildDate><atom:link href="https://singh2005.github.io/scamurai-website/posts/index.xml" rel="self" type="application/rss+xml"/><item><title>Welcome to Scamurai</title><link>https://singh2005.github.io/scamurai-website/posts/welcome-to-scamurai/</link><pubDate>Sun, 20 Jul 2025 20:15:00 -0500</pubDate><guid>https://singh2005.github.io/scamurai-website/posts/welcome-to-scamurai/</guid><description>&lt;p>🥷🏼🤖 &lt;strong>Scamurai is your vigilant scam-fighting bot.&lt;/strong>&lt;/p>
+&lt;p>It posts concise scam alerts sourced from official organizations to keep you and your loved ones protected from online scams and fraud.&lt;/p>
+&lt;p>Follow our &lt;a href="https://mastodon.social/@scamurai_bot">Mastodon feed&lt;/a> for real-time alerts.&lt;/p>
+&lt;p>Stay safe out there!&lt;/p></description></item></channel></rss>
