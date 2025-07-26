@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def create_blog_post(article_text: str, article_url: str, output_dir="posts") -> str:
+def create_blog_post(toot_id: str, article_text: str, article_url: str, output_dir="../content/posts") -> str:
     """
     Generate a user-friendly blog post using ChatGPT based on the article text,
     include the original article URL, and save as a Markdown file.
@@ -19,7 +19,7 @@ def create_blog_post(article_text: str, article_url: str, output_dir="posts") ->
         model="gpt-4o",
         messages=[
             {"role": "system", "content": (
-                "You are a cybersecurity-focused blog writer. Your job is to rewrite consumer protection articles into ~500-word, friendly, easy-to-read blog posts "
+                "You are a cybersecurity-focused blog writer. Your job is to rewrite consumer protection articles into ~500-word, friendly, funny, easy-to-understand blog posts "
                 "for a general audience. Include key warnings and helpful takeaways. End with the original article URL."
             )},
             {"role": "user", "content": article_text}
@@ -35,8 +35,7 @@ def create_blog_post(article_text: str, article_url: str, output_dir="posts") ->
 
     # Generate filename with timestamp
     timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    safe_title = f"blogpost_{timestamp}"
-    filename = os.path.join(output_dir, f"{safe_title}.md")
+    filename = os.path.join(output_dir, f"{toot_id}.md")
 
     # Save Markdown file including original URL at the bottom
     with open(filename, "w", encoding="utf-8") as f:
@@ -49,6 +48,7 @@ def create_blog_post(article_text: str, article_url: str, output_dir="posts") ->
 
 if __name__ == "__main__":
     # Example usage
+    toot_id = '114909168119844436'
     sample_url = "https://consumer.ftc.gov/consumer-alerts/2025/07/scammy-texts-offering-refunds-amazon-purchases"
     sample_text = """Scammers are pretending to be Amazon again. This time, they’re sending texts claiming there’s a problem with something you bought. They offer a refund if you click a link — but it’s a scam. Here’s how the scam works so you can avoid it.
 You get an unexpected text that looks like it’s from Amazon. It claims the company did a “routine quality inspection” and an item you recently bought doesn’t meet Amazon’s standards or has been recalled. The text offers you a full refund and says you don’t need to return the item — as long as you click a link to request your money back. But there is no refund. Instead, it’s a
@@ -74,5 +74,5 @@ Solving Problems With a Business: Returns, Refunds, and Other Resolutions
 .
 """
 
-    output_path = create_blog_post(sample_text, sample_url)
+    output_path = create_blog_post(toot_id, sample_text, sample_url)
     print(f"Blog post saved to: {output_path}")
