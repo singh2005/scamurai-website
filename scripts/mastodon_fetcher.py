@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def get_recent_toots(limit=50):
+def get_recent_toots(limit=40):
 	mastodon = Mastodon(
 		access_token=os.environ['MASTODON_TOKEN'],
 		api_base_url=os.environ['MASTODON_BASE_URL']
@@ -43,6 +43,6 @@ def extract_url_from_html(html):
 
 if __name__ == "__main__":
 	from pprint import pprint
-	toots = get_recent_toots()
+	toots = get_recent_toots(limit=3)
 	for toot in toots:
 		pprint(toot)
