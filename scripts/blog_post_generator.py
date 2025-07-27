@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def create_blog_post(toot_id: str, article_text: str, article_url: str) -> str:
+def create_blog_post(toot_id: str, article_text: str, article_url: str, toot_date: datetime) -> str:
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
@@ -49,7 +49,7 @@ def create_blog_post(toot_id: str, article_text: str, article_url: str) -> str:
     # Fallbacks if GPT doesn't follow format strictly
     title = title_line or "Scam Alert: Stay Safe Online"
     description = description_line or "Learn how to spot and avoid common scams in the digital world."
-    date = datetime.date.today().strftime("%Y-%m-%d")
+    date = toot_date.strftime("%Y-%m-%d")
 
     front_matter = f"""---
 title: "{title}"

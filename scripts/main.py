@@ -19,6 +19,7 @@ def main():
             continue
 
         url = toot["original_url"]
+        toot_date = toot['date']
 
         try:
             if "consumer.ftc.gov" in url:
@@ -29,7 +30,7 @@ def main():
                 print(f"⚠️  Skipping toot {toot_id} (unsupported domain): {url}")
                 continue
 
-            blog_post = create_blog_post(toot_id, article_text, url)
+            blog_post = create_blog_post(toot_id, article_text, url, toot_date)
 
             with open(blog_path, "w", encoding="utf-8") as f:
                 f.write(blog_post)
