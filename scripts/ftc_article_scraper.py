@@ -1,7 +1,7 @@
 import requests
 from bs4 import BeautifulSoup
 
-def extract_article_text(url: str) -> str:
+def extract_ftc_article_text(url: str) -> str:
     print(f"[INFO] Fetching article from: {url}")
     headers = {
         "User-Agent": (

@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def create_blog_post(toot_id: str, article_text: str, article_url: str, output_dir="../content/posts") -> str:
+def create_blog_post(toot_id: str, article_text: str, article_url: str, output_dir= str) -> str:
     """
     Generate a user-friendly blog post using ChatGPT based on the article text,
     include the original article URL, and save as a Markdown file.
@@ -74,5 +74,5 @@ Solving Problems With a Business: Returns, Refunds, and Other Resolutions
 .
 """
 
-    output_path = create_blog_post(toot_id, sample_text, sample_url)
+    output_path = create_blog_post(toot_id, sample_text, sample_url, '../content/posts')
     print(f"Blog post saved to: {output_path}")
