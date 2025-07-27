@@ -5,7 +5,7 @@ from dotenv import load_dotenv
 
 load_dotenv()
 
-def create_blog_post(toot_id: str, article_text: str, article_url: str, output_dir= str) -> str:
+def create_blog_post(toot_id: str, article_text: str, article_url: str) -> str:
     """
     Generate a user-friendly blog post using ChatGPT based on the article text,
     include the original article URL, and save as a Markdown file.
@@ -29,21 +29,10 @@ def create_blog_post(toot_id: str, article_text: str, article_url: str, output_d
     )
 
     blog_post = response.choices[0].message.content
+    blog_post += "\n\n---\n"
+    blog_post += f"Original article: {article_url}\n"
 
-    # Ensure output directory exists
-    os.makedirs(output_dir, exist_ok=True)
-
-    # Generate filename with timestamp
-    timestamp = datetime.datetime.now().strftime("%Y%m%d_%H%M%S")
-    filename = os.path.join(output_dir, f"{toot_id}.md")
-
-    # Save Markdown file including original URL at the bottom
-    with open(filename, "w", encoding="utf-8") as f:
-        f.write(blog_post)
-        f.write("\n\n---\n")
-        f.write(f"Original article: {article_url}\n")
-
-    return filename
+    return blog_post
 
 
 if __name__ == "__main__":
@@ -74,5 +63,5 @@ Solving Problems With a Business: Returns, Refunds, and Other Resolutions
 .
 """
 
-    output_path = create_blog_post(toot_id, sample_text, sample_url, '../content/posts')
-    print(f"Blog post saved to: {output_path}")
+    blog_post = create_blog_post(toot_id, sample_text, sample_url)
+    print(blog_post)
