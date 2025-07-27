@@ -8,7 +8,7 @@ POSTS_DIR = "../content/posts"
 os.makedirs(POSTS_DIR, exist_ok=True)
 
 def main():
-    toots = get_recent_toots(limit=2)
+    toots = get_recent_toots(limit=40)
 
     for toot in toots:
         toot_id = str(toot["id"])
