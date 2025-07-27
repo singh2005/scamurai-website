@@ -6,33 +6,68 @@ from dotenv import load_dotenv
 load_dotenv()
 
 def create_blog_post(toot_id: str, article_text: str, article_url: str) -> str:
-    """
-    Generate a user-friendly blog post using ChatGPT based on the article text,
-    include the original article URL, and save as a Markdown file.
-
-    Returns the path to the saved Markdown file.
-    """
 
     client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
     response = client.chat.completions.create(
         model="gpt-4o",
         messages=[
-            {"role": "system", "content": (
-                "You are a cybersecurity-focused blog writer. Your job is to rewrite consumer protection articles into ~500-word, friendly, funny, easy-to-understand blog posts "
-                "for a general audience. Include key warnings and helpful takeaways. End with the original article URL."
-            )},
+            {
+                "role": "system",
+                "content": (
+                    "You are a cybersecurity-focused blog writer. Your job is to rewrite consumer protection articles into ~500-word, friendly, funny, "
+                    "easy-to-understand blog posts for a general audience. Include key warnings and helpful takeaways.\n\n"
+                    "Return your response in this exact format:\n\n"
+                    "Title: [Catchy blog title]\n"
+                    "Description: [One-sentence blog summary]\n"
+                    "[The main blog content in markdown format]\n\n"
+                    "End the blog content with a line that includes the original article URL."
+                )
+            },
             {"role": "user", "content": article_text}
         ],
         max_tokens=800,
         temperature=0.7,
     )
 
-    blog_post = response.choices[0].message.content
-    blog_post += "\n\n---\n"
-    blog_post += f"Original article: {article_url}\n"
+    full_output = response.choices[0].message.content.strip()
 
-    return blog_post
+    # Extract title and description
+    lines = full_output.splitlines()
+    title_line = ""
+    description_line = ""
+    body_lines = []
+
+    for line in lines:
+        if line.lower().startswith("title:"):
+            title_line = line.split(":", 1)[1].strip().strip('"')
+        elif line.lower().startswith("description:"):
+            description_line = line.split(":", 1)[1].strip().strip('"')
+        else:
+            body_lines.append(line)
+
+    # Fallbacks if GPT doesn't follow format strictly
+    title = title_line or "Scam Alert: Stay Safe Online"
+    description = description_line or "Learn how to spot and avoid common scams in the digital world."
+    date = datetime.date.today().strftime("%Y-%m-%d")
+
+    front_matter = f"""---
+title: "{title}"
+date: {date}
+description: "{description}"
+draft: false
+---
+
+"""
+
+    blog_body = "\n".join(body_lines).strip()
+
+    # Append article URL if it's not already present
+    if article_url not in blog_body:
+        blog_body += f"\n\n---\nOriginal article: {article_url}"
+
+    return front_matter + blog_body
+
 
 
 if __name__ == "__main__":
