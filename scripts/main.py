@@ -4,11 +4,11 @@ from ftc_article_scraper import extract_ftc_article_text
 from ic3_article_scraper import extract_ic3_article_text
 from blog_post_generator import create_blog_post
 
-POSTS_DIR = "../content/posts"
+POSTS_DIR = "content/posts"
 os.makedirs(POSTS_DIR, exist_ok=True)
 
 def main():
-    toots = get_recent_toots(limit=40)
+    toots = get_recent_toots(limit=1)
 
     for toot in toots:
         toot_id = str(toot["id"])
