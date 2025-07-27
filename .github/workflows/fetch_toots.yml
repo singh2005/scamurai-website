@@ -2,7 +2,7 @@ name: Fetch Mastodon Toots
 
 on:
   schedule:
-    - cron: "0 * * * *" # every hour
+    - cron: "0 */4 * * *"
   workflow_dispatch:
 
 jobs:
@@ -26,16 +26,18 @@ jobs:
         python-version: '3.x'
 
     - name: Install dependencies
-      run: pip install Mastodon.py
+      run: pip install -r requirements.txt
 
-    - name: Run fetch_toots.py
+    - name: Run main.py pipeline
       env:
         MASTODON_BASE_URL: https://mastodon.social
         MASTODON_TOKEN: ${{ secrets.MASTODON_TOKEN }}
-      run: python scripts/fetch_toots.py
+        OPENAI_API_KEY: ${{ secrets.OPENAI_API_KEY }}
+      run: python scripts/main.py
 
     - name: Commit & push changes
       run: |
         git add content/posts/*.md
         git commit -m "Add new scam alert posts from Mastodon" || echo "No changes to commit"
         git push
+
