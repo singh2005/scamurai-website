@@ -1,0 +1,5 @@
+beautifulsoup4
+Mastodon.py
+openai
+python-dotenv
+requests
