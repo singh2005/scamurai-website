@@ -40,29 +40,33 @@
     {{- partial "anchored_headings.html" .Content -}}
     {{- else }}{{ .Content }}{{ end }}
   </div>
-  <div style="margin-top: 2rem;">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+
     <!-- Facebook -->
     <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}" 
        target="_blank" 
        rel="noopener noreferrer" 
-       style="display: inline-block; padding: 0.5rem 1rem; background-color: #3b5998; color: white; border-radius: 5px; text-decoration: none; margin-right: 10px;">
-      Share on Facebook
+       style="display: inline-block; padding: 0.5rem 1rem; background-color: #3b5998; color: white; border-radius: 5px; text-decoration: none; margin-right: 10px;"
+       title="Share on Facebook">
+      <i class="fab fa-facebook-f"></i>
     </a>
 
     <!-- LinkedIn -->
     <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}"
        target="_blank"
        rel="noopener noreferrer"
-       style="display: inline-block; padding: 0.5rem 1rem; background-color: #0077b5; color: white; border-radius: 5px; text-decoration: none; margin-right: 10px;">
-      Share on LinkedIn
+       style="display: inline-block; padding: 0.5rem 1rem; background-color: #0077b5; color: white; border-radius: 5px; text-decoration: none; margin-right: 10px;"
+       title="Share on LinkedIn">
+      <i class="fab fa-linkedin-in"></i>
     </a>
 
     <!-- Reddit -->
     <a href="https://www.reddit.com/submit?url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}"
        target="_blank"
        rel="noopener noreferrer"
-       style="display: inline-block; padding: 0.5rem 1rem; background-color: #ff4500; color: white; border-radius: 5px; text-decoration: none;">
-      Share on Reddit
+       style="display: inline-block; padding: 0.5rem 1rem; background-color: #ff4500; color: white; border-radius: 5px; text-decoration: none;"
+       title="Share on Reddit">
+      <i class="fab fa-reddit-alien"></i>
     </a>
   </div>
   {{- end }}
