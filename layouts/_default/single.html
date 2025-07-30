@@ -41,13 +41,30 @@
     {{- else }}{{ .Content }}{{ end }}
   </div>
   <div style="margin-top: 2rem;">
-    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink }}" 
+    <!-- Facebook -->
+    <a href="https://www.facebook.com/sharer/sharer.php?u={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}" 
        target="_blank" 
        rel="noopener noreferrer" 
-       style="display: inline-block; padding: 0.5rem 1rem; background-color: #3b5998; color: white; border-radius: 5px; text-decoration: none;">
+       style="display: inline-block; padding: 0.5rem 1rem; background-color: #3b5998; color: white; border-radius: 5px; text-decoration: none; margin-right: 10px;">
       Share on Facebook
     </a>
-  </div>  
+
+    <!-- LinkedIn -->
+    <a href="https://www.linkedin.com/shareArticle?mini=true&url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="display: inline-block; padding: 0.5rem 1rem; background-color: #0077b5; color: white; border-radius: 5px; text-decoration: none; margin-right: 10px;">
+      Share on LinkedIn
+    </a>
+
+    <!-- Reddit -->
+    <a href="https://www.reddit.com/submit?url={{ .Permalink | urlquery }}&title={{ .Title | urlquery }}"
+       target="_blank"
+       rel="noopener noreferrer"
+       style="display: inline-block; padding: 0.5rem 1rem; background-color: #ff4500; color: white; border-radius: 5px; text-decoration: none;">
+      Share on Reddit
+    </a>
+  </div>
   {{- end }}
 
   <footer class="post-footer">
