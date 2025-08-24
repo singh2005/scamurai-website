@@ -1,5 +1,6 @@
 import os
 import re
+import glob
 import unicodedata
 from ftc_article_scraper import extract_ftc_article_text
 from ic3_article_scraper import extract_ic3_article_text
@@ -10,6 +11,16 @@ from pubdate_parser import parse_pubdate
 
 POSTS_DIR = "content/posts"
 os.makedirs(POSTS_DIR, exist_ok=True)
+
+def is_posted(scam_url: str):
+    search_line = f"Original article: {scam_url}"
+    for filename in glob.glob("content/posts/*.md"):
+        with open(filename, "r", encoding="utf-8") as f:
+            for line in f:
+                if line.strip() == search_line:
+                    print(f"{scam_url} Found in {filename}")
+                    return True
+    return False
 
 def slugify(text: str):
     text = unicodedata.normalize("NFKD", text).encode("ascii", "ignore").decode("ascii")
@@ -23,16 +34,13 @@ def main():
     ic3_scams = fetch_rss_links("https://www.ic3.gov/PSA/RSS")
     scams = ftc_scams + ic3_scams
 
-    for scam in scams[]:
-        scam_title = scam[0]
-        scam_url = scam[1]
-        scam_pubdate = scam[2]
+    for scam_title, scam_url, scam_pubdate in scams:
+        if is_posted(scam_url):
+            print("Already posted!")
+            continue
+
         scam_id = slugify(scam_title)
         blog_path = os.path.join(POSTS_DIR, f"{scam_id}.md")
-
-        if os.path.exists(blog_path):
-            print(f"✅ Skipping blog: {scam_id} (already exists)")
-            continue
 
         scam_date = parse_pubdate(scam_pubdate)
 
@@ -52,7 +60,7 @@ def main():
             print(f"✅ Blog post saved: {blog_path}")
 
         except Exception as e:
-            print(f"❌ Error processing toot {toot_id}: {e}")
+            print(f"❌ Error processing toot {scam_id}: {e}")
 
 
 if __name__ == "__main__":
