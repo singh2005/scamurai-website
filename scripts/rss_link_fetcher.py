@@ -23,8 +23,10 @@ def fetch_rss_links(feed_url: str):
 
     for item in items:
         link = item.findtext("link", "").strip()
+        title = item.findtext("title", "").strip()
+        pubdate = item.findtext("pubDate", "").strip()
         if link:
-            links.append(link)
+            links.append([title, link, pubdate])
 
     return links
 
