@@ -32,6 +32,6 @@ def extract_ftc_article_text(url: str) -> str:
 
 if __name__ == "__main__":
     test_url = "https://consumer.ftc.gov/consumer-alerts/2025/07/scammy-texts-offering-refunds-amazon-purchases"
-    article_text = extract_article_text(test_url)
+    article_text = extract_ftc_article_text(test_url)
     print("\n[ARTICLE CONTENT]\n")
     print(article_text)
