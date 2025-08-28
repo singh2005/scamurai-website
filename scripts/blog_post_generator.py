@@ -51,10 +51,14 @@ def create_blog_post(toot_id: str, article_text: str, article_url: str, toot_dat
     description = description_line or "Learn how to spot and avoid common scams in the digital world."
     date = toot_date.strftime("%Y-%m-%d")
 
+    yaml_safe_title = title.replace("\n", " ").replace('"', '\\"')
+    yaml_safe_description = description.replace("\n", " ").replace('"', '\\"')
+
+
     front_matter = f"""---
-title: "{title}"
+title: "{yaml_safe_title}"
 date: {date}
-description: "{description}"
+description: "{yaml_safe_description}"
 draft: false
 ---
 
