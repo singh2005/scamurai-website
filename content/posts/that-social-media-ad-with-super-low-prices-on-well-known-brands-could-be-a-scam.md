@@ -1,5 +1,5 @@
 ---
-title: "Don't Get Hooked by Social Media "Deals"!"
+title: "Don't Get Hooked by Social Media \"Deals\"!"
 date: 2025-08-26
 description: "Unravel the mystery of those too-good-to-be-true social media deals and learn how to dodge digital scams with a smile!"
 draft: false
