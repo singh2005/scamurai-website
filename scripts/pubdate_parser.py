@@ -1,7 +1,7 @@
 from datetime import datetime, timezone
 import dateutil.parser
 
-def parse_pubdate(pubdate: str) -> str:
+def parse_pubdate(pubdate: str) -> datetime:
     """
     Parse pubDate strings from FTC or IC3 feeds and return ISO 8601 UTC.
     
@@ -24,7 +24,7 @@ def parse_pubdate(pubdate: str) -> str:
             dt = dateutil.parser.parse(pubdate)
 
         # Convert everything to UTC and return ISO 8601
-        return dt.astimezone(timezone.utc).isoformat()
+        return dt.astimezone(timezone.utc)
 
     except Exception as e:
         raise ValueError(f"Unrecognized pubDate format: {pubdate}") from e
