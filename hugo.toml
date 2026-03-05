@@ -6,6 +6,7 @@ theme = 'PaperMod'
 [params]
   mainSections = ['posts']
   defaultTheme = "auto"
+  author: "Summarized by AI"
 
 [[menu.main]]
   identifier = "about"
