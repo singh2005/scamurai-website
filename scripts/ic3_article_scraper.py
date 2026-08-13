@@ -19,7 +19,7 @@ def extract_ic3_article_text(url: str) -> str:
 
     soup = BeautifulSoup(response.text, 'html.parser')
 
-    main_content = soup.find('main', id='main')
+    main_content = soup.find('main')
     if not main_content:
         raise Exception("[ERROR] Could not find main content")
 
