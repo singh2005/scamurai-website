@@ -30,11 +30,11 @@ def slugify(text: str):
     return text
 
 def main():
-    ftc_scams = fetch_rss_links("https://consumer.ftc.gov/blog/gd-rss.xml")
+    #ftc_scams = fetch_rss_links("https://consumer.ftc.gov/blog/gd-rss.xml")
     ic3_scams = fetch_rss_links("https://www.ic3.gov/PSA/RSS")
-    scams = ftc_scams + ic3_scams
+    #scams = ftc_scams + ic3_scams
 
-    for scam_title, scam_url, scam_pubdate in scams:
+    for scam_title, scam_url, scam_pubdate in ic3_scams:
         if is_posted(scam_url):
             print("Already posted!")
             continue
